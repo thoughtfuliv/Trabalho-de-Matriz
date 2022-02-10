@@ -1,0 +1,50 @@
+package ProgramaPrincipal510203;
+
+import PacoteProgramas.MetodosDisciplina;
+import java.util.Scanner;
+
+public class Aula_14 {
+    
+    public static void main(String[] args) {
+        Scanner dado = new Scanner(System.in);
+        int[][] matriz = new int[3][3];
+        int[] vetor = new int[3]; int opcao;
+        for(int i = 0; i < 3; ++i) {
+            for(int j = 0; j < 3; ++j) {
+               System.out.println("Entre com um valor na posição " + (i+1) + "," + (j+1));
+               matriz[i][j] = dado.nextInt();
+            }
+        }
+        for(int i = 0; i < 3; ++i) {
+            for(int j = 0; j < 3; ++j) {
+               System.out.println("O valor da posição " + (i+1) + "," + (j+1) + " da matriz matriz e = " + matriz[i][j]);
+            }
+        }
+        do {
+          System.out.println("1. Calcule a soma das inhas de um matriz ");
+          System.out.println("2. Calcule o fatorial da soma da primeira linha ");
+          System.out.println("3. Calcule a soma da diagonal principal ");
+          System.out.println("4. Coloque as linhas de uma matriz em ordem crescente");
+          System.out.println("5. Soma de um vetor resultante da soma das linhas de uma matriz");
+          System.out.println("6. calcule o fatorial da Soma de um vetor resultante da soma das linhas de uma matriz");
+          System.out.println("7. Imprima a quantidade de numeros primos na matriz");
+          System.out.println("8. Imprima a soma das diagonais principal e secundaria");
+          System.out.println("Entre com uma opcao ");
+          opcao = dado.nextInt();
+        
+          switch(opcao) {
+            case 0: System.out.println("Digite 0 para encerrar o programa "); break;
+            case 1: Calcula_Soma_linhas(matriz, vetor); break;
+            case 2: Calcula_fatoria_linha(matriz); break;
+            case 3: Calcula_Soma_Diagonal_Principal(matriz); break;
+            case 4: Metodo_Ordem_Crescente(matriz); break;
+            case 5: Metodo_Soma_Vetor(matriz); break;
+            case 6: Metodo_Opcao_6(matriz); break;
+            case 7: Metodo_Opcao_7(matriz); break;
+            case 8: Metodo_Opcao_8(matriz); break;
+            default: System.out.println("Opcao Invalida "); 
+          }
+        } while(opcao > 0);
+    }
+    
+   
