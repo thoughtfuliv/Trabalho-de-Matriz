@@ -1,6 +1,6 @@
 package ProgramaPrincipal510203;
 
-import PacoteProgramas.MetodosDisciplina;
+import ProgramaMetodos507826.MetodosDisciplina;
 import java.util.Scanner;
 
 public class Aula_14 {
