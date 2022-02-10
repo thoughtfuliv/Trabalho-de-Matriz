@@ -21,6 +21,8 @@ public class Aula_14 {
             }
         }
         do {
+          System.out.println("Entre com uma opcao ");
+          opcao = dado.nextInt();
           System.out.println("1. Calcule a soma das linhas de um matriz ");
           System.out.println("2. Calcule o fatorial da soma da primeira linha ");
           System.out.println("3. Calcule a soma da diagonal principal ");
@@ -29,11 +31,13 @@ public class Aula_14 {
           System.out.println("6. calcule o fatorial da Soma de um vetor resultante da soma das linhas de uma matriz");
           System.out.println("7. Imprima a quantidade de numeros primos na matriz");
           System.out.println("8. Imprima a soma das diagonais principal e secundaria");
-          System.out.println("Entre com uma opcao ");
-          opcao = dado.nextInt();
+          System.out.println("9. Imprima a soma das diagonais principal e secundaria");
+          System.out.println("10. Imprima a soma das diagonais principal e secundaria");
+          System.out.println("0. Entre com xero para encerrar o programa");
+        
         
           switch(opcao) {
-            case 0: System.out.println("Digite 0 para encerrar o programa "); break;
+            case 00: System.out.println("Digite 0 para encerrar o programa "); break;
             case 1: Calcula_Soma_linhas(matriz, vetor); break;
             case 2: Calcula_fatoria_linha(matriz); break;
             case 3: Calcula_Soma_Diagonal_Principal(matriz); break;
@@ -42,6 +46,11 @@ public class Aula_14 {
             case 6: Metodo_Opcao_6(matriz); break;
             case 7: Metodo_Opcao_7(matriz); break;
             case 8: Metodo_Opcao_8(matriz); break;
+            case 9: Metodo_Opcao_9(matriz); break;
+            case 10: Metodo_Opcao_10(matriz); break;
+            case 0: Metodo_Opcao_0(matriz); break;
+            
+            
             default: System.out.println("Opcao Invalida "); 
           }
         } while(opcao > 0);
