@@ -21,7 +21,7 @@ public class Aula_14 {
             }
         }
         do {
-          System.out.println("1. Calcule a soma das inhas de um matriz ");
+          System.out.println("1. Calcule a soma das linhas de um matriz ");
           System.out.println("2. Calcule o fatorial da soma da primeira linha ");
           System.out.println("3. Calcule a soma da diagonal principal ");
           System.out.println("4. Coloque as linhas de uma matriz em ordem crescente");
@@ -46,13 +46,12 @@ public class Aula_14 {
           }
         } while(opcao > 0);
         }
-      Soma_Linhas (matriz, vetor);
-        }
          public static void Calculando_Soma_Linhas (int m[][], int vetor[]) {
             Metodos_programacao.Soma_Linhas(m,vetor);
                for(int i = 0; i < 3; ++i) {
            System.out.println("O valor da soma da linha " + (i+1) + " = " + vetor[i]);
             }  
+            
           }
     }
     
