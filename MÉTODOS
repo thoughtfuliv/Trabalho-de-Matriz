@@ -1,0 +1,19 @@
+package PacoteMetodos507826;
+
+public class MetodosDisciplina {
+    
+    public static void CalculaFatorial_01(int n) {
+        int fat = 1;
+        for(int i = 2; i<=n; ++i) {
+            fat = fat * i;
+        }
+        System.out.println("O valor do fatorial do  PacoteProgramas " + n + " e = " + fat);
+    }
+    
+    public static int CalculaFatorial_02(int n) {
+        int fat = 1;
+        for(int i = 2; i<=n; ++i) {
+            fat = fat * i;
+        }
+      return fat;
+    }
