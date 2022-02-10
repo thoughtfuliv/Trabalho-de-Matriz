@@ -45,6 +45,15 @@ public class Aula_14 {
             default: System.out.println("Opcao Invalida "); 
           }
         } while(opcao > 0);
+        }
+      Soma_Linhas (matriz, vetor);
+        }
+         public static void Calculando_Soma_Linhas (int m[][], int vetor[]) {
+            Metodos_programacao.Soma_Linhas(m,vetor);
+               for(int i = 0; i < 3; ++i) {
+           System.out.println("O valor da soma da linha " + (i+1) + " = " + vetor[i]);
+            }  
+          }
     }
     
    
