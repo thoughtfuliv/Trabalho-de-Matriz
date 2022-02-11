@@ -17,17 +17,17 @@ public class Principal_trabalho {
             }
         }
         do{
-            System.out.println("1 - Calcular e imprimir a soma para cada linha");
+            System.out.println("1 - Calcular e imprimir a soma linha da matriz");
             System.out.println("2 - Identificar e imprimir os numeros primos");
             System.out.println("3 - Calcular a matriz transposta");
             System.out.println("4 - Calcular o fatorial da matriz");
-            System.out.println("4 - Calcular o determinante da matriz");
-            System.out.println("5 - Calcular o Fatorial da linha da matriz");
-            System.out.println("6 - Calcular o Fatorial da coluna da matriz");
-            System.out.println("7 - Calcular  da matriz");
+            System.out.println("5 - Calcular o fatorial da soma linha da matriz");
+            System.out.println("6 - Calcular o fatorial do soma coluna da  matriz");
+            System.out.println("7 - Calcular o determinante da matriz");
             System.out.println("8 - Calcular  da matriz");
             System.out.println("9 - Calcular  da matriz");
-            System.out.println("10 - Calcular da matriz");
+            System.out.println("10 - Calcular  da matriz");
+        
             System.out.println("0 - Sair do programa");
             op = sc.nextInt();
 
@@ -51,7 +51,10 @@ public class Principal_trabalho {
                 case 6 ->{
                     Metodos_trabalho.somaDasColunasFatorial(matriz);
                 }
-                case 0 -> System.out.println("Fechando...");
+                case 7 -> {
+                    Metodos_trabalho.calculoDeterminante(matriz);
+                }
+                case 0 -> System.out.println("Programa encerrrado!");
                 
             }
 
