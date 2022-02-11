@@ -1,6 +1,5 @@
-
+// Alice Alves e Lívia Christine
 package Parte2;
-
 public class Metodos_trabalho {
     public static void Soma_Linhas(int m[][], int vetor[]) {
         for(int i = 0; i < 3; ++i) {
@@ -10,7 +9,6 @@ public class Metodos_trabalho {
             System.out.println("O valor da soma da linha " + (i+1) + " no metodo do pacote = " + vetor[i]);
         }
     }
-
 public static int Contar_Primos(int m[][]){
 int quant = 0;
                     System.out.println("Os números primos dessa matriz são: ");
@@ -20,7 +18,7 @@ int quant = 0;
                                 if(m[i][j]%k == 0){
                                     quant++;
                                 }
-                            }
+                           }
                             if(quant <= 2){
                                 System.out.println(m[i][j]);
                                 System.out.println("Posição: ");
@@ -40,11 +38,9 @@ int quant = 0;
         for (int a = i; a > 1; a--) {
             f *= a;
         }
-
         return f;
     }
-
- public static void somaDasColunasFatorial(int matriz [][]) {
+ public static double somaDasColunasFatorial(int matriz [][]) {
         int rowsLength = matriz.length;
         int colLength = matriz[rowsLength - 1].length;
 
@@ -59,8 +55,8 @@ int quant = 0;
 
             System.out.println("O valor da soma fatorial dos elementos da coluna " + (i + 1) + " é igual à: " + sum + "\n");
         }
+        return 0;
  }
- 
  public static void somaLinhafatorial (int m[][], int vetor[], int i){
         int t = 0;
         for (int a = 0; a<i; a++){
@@ -85,8 +81,7 @@ int quant = 0;
             col--;
         }
         System.out.println("O resultado da diagonal secundária da matriz equivale à: " + dia + "\n");
-    }
-    
+    }   
     public static void diagonal_Principal (int matriz[][], int i){
         int diagonal = 0;
         for (int a = 0; a<i; a++){
@@ -96,7 +91,7 @@ int quant = 0;
         }
         System.out.println("O valor da diagonal principal da matriz equivale à: " + diagonal + "\n");
     }
-   public static void Matriz_Transposta (int matriz[][], int i){
+   public static double Matriz_Transposta (int matriz[][], int i){
             System.out.println("O resultado da transposta da matriz equivale a: \n");
 		int[][] matrizTransposta = new int[i][i];
 		for(int a = 0 ; a < i ; a++){
@@ -105,26 +100,43 @@ int quant = 0;
 				System.out.print(" [" + matrizTransposta[b][b] + "] ");
 			}
 			System.out.println();
+		}		
+        return 0;
+	}		
+   public static double calculoDeterminante (int[][] matriz) {
+		int det = 0;
+		int kAux = 0;
+		int [][] aux = new int [matriz.length-1][matriz[0].length-1];
+		if(matriz.length == 1 && matriz[0].length==1)
+			return matriz[0][0];
+		for (int i = 0; i < matriz[0].length; i++) {	
+			for (int j = 1; j < matriz.length; j++) {
+				
+				for (int k = 0; k < matriz[0].length; k++) {
+					if(k==i)
+						continue;
+					
+					aux[j-1][kAux] = matriz[j][k];
+					kAux++;
+				}
+				kAux = 0;
+			}
+			det += (Math.pow(-1, 1+(i+1)))*calculoDeterminante(aux);		
 		}
-		
-		
+		return det;
+                
 	}
-   public static int Determinante(int matriz[][]) {
-        int deter = 0;
-        int i;
-        int mult = 1;
-        if (matriz.length > 2) {
-            for (i = 0; i < matriz.length; i++) {
-                deter += mult * matriz[i][0] * Determinante(SubMatriz(matriz, i, 0));
-                mult *= -1;
+   public static float mediaDiagonalPrincipal(int[][] matriz) {
+       float somaDiagonalPrincipal = 0, media, cont = 0;
+       for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j<matriz[0].length; j++) {
+                if (i == j) {
+                    cont++;
+                    somaDiagonalPrincipal = somaDiagonalPrincipal + matriz[i][j];
+                }
             }
-            return deter;
-        } else {
-            return matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0];
         }
+        media = somaDiagonalPrincipal/cont;
+        return media;
     }
-		
-  }
-
-
-
+    }
