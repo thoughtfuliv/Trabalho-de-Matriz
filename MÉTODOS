@@ -34,5 +34,97 @@ int quant = 0;
                     }
         return quant;
 }
-}
+ public static int calcularFatorial(int i) {
+        int f = 1;
+
+        for (int a = i; a > 1; a--) {
+            f *= a;
+        }
+
+        return f;
+    }
+
+ public static void somaDasColunasFatorial(int matriz [][]) {
+        int rowsLength = matriz.length;
+        int colLength = matriz[rowsLength - 1].length;
+
+        for (int i = 0; i < colLength; i++) {
+            int sum = 0;
+
+            for (int j = 0; j < rowsLength; j++) {
+                int num = calcularFatorial(matriz[j][i]);
+
+                sum += num;
+            }
+
+            System.out.println("O valor da soma fatorial dos elementos da coluna " + (i + 1) + " é igual à: " + sum + "\n");
+        }
+ }
+ 
+ public static void somaLinhafatorial (int m[][], int vetor[], int i){
+        int t = 0;
+        for (int a = 0; a<i; a++){
+            vetor[a] = 0;
+            for (int b = 0; b<i; b++){
+                int fat= 1;
+                for (int c = 1; c<=m[a][b]; c++){
+                    fat = fat * c;
+                }
+                System.out.println("O fatorial do elemento " + m[a][b] + " na linha " + (a+1) + " e na coluna " + (b+1)+ " é igual à: " + fat + " \n");
+                vetor[a] = vetor[a] + fat;
+            }
+            System.out.println("A soma dos fatoriais na linha " + (a+1) + " é igual à: " + vetor[a] + " \n");
+            t = t + vetor[a];
+        }
+        System.out.println("No total, a soma de todos os fatoriais da matriz, é igual à: " + t + "\n");
+    }
+ public static void Diagonal_Secundaria (int matriz[][], int i){
+        int dia = 0, col = (i-1);
+        for (int a = 0; a<i; a++){
+            dia = dia + matriz[a][col];
+            col--;
+        }
+        System.out.println("O resultado da diagonal secundária da matriz equivale à: " + dia + "\n");
+    }
+    
+    public static void diagonal_Principal (int matriz[][], int i){
+        int diagonal = 0;
+        for (int a = 0; a<i; a++){
+            for (int b = 0; b<i; b++){
+                if (a == b) diagonal = diagonal + matriz[a][b];
+            }
+        }
+        System.out.println("O valor da diagonal principal da matriz equivale à: " + diagonal + "\n");
+    }
+   public static void Matriz_Transposta (int matriz[][], int i){
+            System.out.println("O resultado da transposta da matriz equivale a: \n");
+		int[][] matrizTransposta = new int[i][i];
+		for(int a = 0 ; a < i ; a++){
+			for(int b = 0 ; b < i; b++){
+				matrizTransposta[b][b] = matriz[b][a];
+				System.out.print(" [" + matrizTransposta[b][b] + "] ");
+			}
+			System.out.println();
+		}
+		
+		
+	}
+   public static int Determinante(int matriz[][]) {
+        int deter = 0;
+        int i;
+        int mult = 1;
+        if (matriz.length > 2) {
+            for (i = 0; i < matriz.length; i++) {
+                deter += mult * matriz[i][0] * Determinante(SubMatriz(matriz, i, 0));
+                mult *= -1;
+            }
+            return deter;
+        } else {
+            return matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0];
+        }
+    }
+		
+  }
+
+
 
