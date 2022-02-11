@@ -1,4 +1,3 @@
-
 package programacao1;
 import Parte2.Metodos_trabalho;
 import java.util.Scanner;
@@ -24,7 +23,7 @@ public class Principal_trabalho {
             System.out.println("5 - Calcular o fatorial da soma linha da matriz");
             System.out.println("6 - Calcular o fatorial do soma coluna da  matriz");
             System.out.println("7 - Calcular o determinante da matriz");
-            System.out.println("8 - Calcular  da matriz");
+            System.out.println("8 - Calcular a média da diagonal principal da matriz");
             System.out.println("9 - Calcular  da matriz");
             System.out.println("10 - Calcular  da matriz");
         
@@ -42,8 +41,7 @@ public class Principal_trabalho {
                     Metodos_trabalho.Matriz_Transposta(matriz, op);
                   }
                 case 4 -> {
-                    Metodos_trabalho.calcularFatorial(op);
-                                 
+                    Metodos_trabalho.calcularFatorial(op);                   
                 }
                 case 5 -> {
                     Metodos_trabalho.somaLinhafatorial(matriz, vetor, op);                 
@@ -72,13 +70,34 @@ public class Principal_trabalho {
         for(int j = 0; j<matriz[i].length; j++){
             System.out.println("A quantidade de primos é " + (i+1) + " = " + vetor[i]);
         System.out.println(num_primo);
+    }     
+  }
     }
-        
-        
-    }
-   
-}
-
-        }
-
+    public static void Transposta_Matriz (int[][] matriz) {
+       double metodo = Metodos_trabalho.Matriz_Transposta(matriz, 0);
+       System.out.print(" A matriz transposta é igual a " + metodo);     
+   }
+    public static void Fatorial_matriz (int i){
+        Metodos_trabalho.calcularFatorial(i);
+        System.out.print(" O fatorial da matriz é igual a " + i);
     
+    }   
+    public static void SomaLinha_Fatorial (int m[][], int vetor[], int i){
+        Metodos_trabalho.somaLinhafatorial(m, vetor, i);
+        System.out.print(" O fatorial da soma linha da matriz é igual a " + i);
+    }
+    public static void SomaColuna_Fatorial (int matriz [][]){
+        double somacoluna = Metodos_trabalho.somaDasColunasFatorial(matriz);
+        System.out.println("O valor da soma fatorial dos elementos da coluna " + somacoluna);
+            }
+    public static void Calcula_Determinante (int[][] matriz){
+        double det = Metodos_trabalho.calculoDeterminante(matriz);
+        System.out.println("O valor do determinante da matriz " + det);
+        
+}
+    public static void Media_DiagonalPrincipal (int[][] matriz) {
+        float media_diagonalprincipal = Metodos_trabalho.mediaDiagonalPrincipal(matriz);
+         System.out.println("O valor da media da diagonal principal da matriz " + media_diagonalprincipal);
+    }
+
+}
