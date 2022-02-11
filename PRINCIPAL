@@ -19,7 +19,16 @@ public class Principal_trabalho {
         do{
             System.out.println("1 - Calcular e imprimir a soma para cada linha");
             System.out.println("2 - Identificar e imprimir os numeros primos");
-            System.out.println("3 - Sair do programa");
+            System.out.println("3 - Calcular a matriz transposta");
+            System.out.println("4 - Calcular o fatorial da matriz");
+            System.out.println("4 - Calcular o determinante da matriz");
+            System.out.println("5 - Calcular o Fatorial da linha da matriz");
+            System.out.println("6 - Calcular o Fatorial da coluna da matriz");
+            System.out.println("7 - Calcular  da matriz");
+            System.out.println("8 - Calcular  da matriz");
+            System.out.println("9 - Calcular  da matriz");
+            System.out.println("10 - Calcular da matriz");
+            System.out.println("0 - Sair do programa");
             op = sc.nextInt();
 
             switch (op) {
@@ -29,7 +38,20 @@ public class Principal_trabalho {
                 case 2 -> {
                     Metodos_trabalho.Contar_Primos(matriz);
                 }
-                case 3 -> System.out.println("Fechando...");
+                case 3  -> {
+                    Metodos_trabalho.Matriz_Transposta(matriz, op);
+                  }
+                case 4 -> {
+                    Metodos_trabalho.calcularFatorial(op);
+                                 
+                }
+                case 5 -> {
+                    Metodos_trabalho.somaLinhafatorial(matriz, vetor, op);                 
+                }
+                case 6 ->{
+                    Metodos_trabalho.somaDasColunasFatorial(matriz);
+                }
+                case 0 -> System.out.println("Fechando...");
                 
             }
 
