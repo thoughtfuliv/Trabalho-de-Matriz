@@ -1,14 +1,18 @@
-package programacao1;
-import Parte2.Metodos_trabalho;
+package ProgramaPrincipal510203;
+import ProgramaMetodos507826.ClasseProgramaMetodos507826;
 import java.util.Scanner;
 
-public class Principal_trabalho {
-    
+/**
+ *
+ * @author Nome das alunas: Alice Alves (507826) e Lívia Pinheiro (510203)
+ */
+public class ClasseProgramaPrincipal510203 { 
+    @SuppressWarnings("empty-statement")
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int[][] matriz = new int[3][3];
-      int[] vetor = new int[3]; int opção;
-      int op;
+        int[][] matriz = new int[100][100];
+        int[] vetor = new int[100];
+        int op;
         for(int i = 0; i<matriz.length; i++ ){
             for(int j = 0; j<matriz[i].length; j++){
                 System.out.println("Informe o número da linha "+(1+i)+" e coluna "+(j+1));
@@ -16,88 +20,119 @@ public class Principal_trabalho {
             }
         }
         do{
-            System.out.println("1 - Calcular e imprimir a soma linha da matriz");
-            System.out.println("2 - Identificar e imprimir os numeros primos");
-            System.out.println("3 - Calcular a matriz transposta");
-            System.out.println("4 - Calcular o fatorial da matriz");
-            System.out.println("5 - Calcular o fatorial da soma linha da matriz");
-            System.out.println("6 - Calcular o fatorial do soma coluna da  matriz");
-            System.out.println("7 - Calcular o determinante da matriz");
-            System.out.println("8 - Calcular a média da diagonal principal da matriz");
-            System.out.println("9 - Calcular  da matriz");
-            System.out.println("10 - Calcular  da matriz");
-        
-            System.out.println("0 - Sair do programa");
+            System.out.println("1 - Calcular e imprimir a soma das linhas da matriz ");
+            System.out.println("2 - Identificar e imprimir os numeros primos ");
+            System.out.println("3 - Calcular a matriz transposta ");
+            System.out.println("4 - Calcular o fatorial de cada elemento da matriz é ");
+            System.out.println("5 - Calcular o fatorial da soma das linhas da matriz ");
+            System.out.println("6 - Calcular o fatorial do soma das colunas da  matriz ");
+            System.out.println("7 - Calcular o determinante da matriz ");
+            System.out.println("8 - Calcular a média da diagonal principal da matriz ");
+            System.out.println("9 - Calcular o produto entre as somas dos fatoriais das linhas e das colunas da matriz ");
+            System.out.println("10 - Calcular a soma entre as somas dos fatoriais das linhas e das colunas da matriz ");
+            System.out.println("11 - Sair do programa");
             op = sc.nextInt();
 
             switch (op) {
                 case 1 -> {
-                    Metodos_trabalho.Soma_Linhas(matriz, vetor);
+                   MetodoOpcao_01_510203(matriz,vetor);
+                   break;
                 }
+                
                 case 2 -> {
-                    Metodos_trabalho.Contar_Primos(matriz);
+                    MetodoOpcao_02_507826(matriz,vetor);
+                    break;
                 }
                 case 3  -> {
-                    Metodos_trabalho.Matriz_Transposta(matriz, op);
+                    MetodoOpcao_03_510203 (matriz);
+                    break;
                   }
                 case 4 -> {
-                    Metodos_trabalho.calcularFatorial(op);                   
+                    int i = 0;
+                    MetodoOpcao_04_507826 (i);
+                    break;
                 }
+
                 case 5 -> {
-                    Metodos_trabalho.somaLinhafatorial(matriz, vetor, op);                 
+                    MetodoOpcao_05_510203 (matriz,vetor);   
+                    break;
                 }
                 case 6 ->{
-                    Metodos_trabalho.somaDasColunasFatorial(matriz);
+                    int i = 0;
+                    MetodoOpcao_06_507826(matriz,i);
+                    break;
                 }
                 case 7 -> {
-                    Metodos_trabalho.calculoDeterminante(matriz);
+                    MetodoOpcao_07_510203 (matriz);
+                    break;
                 }
-                case 0 -> System.out.println("Programa encerrrado!");
+                case 8 -> {
+                    MetodoOpcao_08_507826 (matriz);
+                    break;
+                }
+                case 9 -> {
+                    MetodoOpcao_09_510203(matriz,vetor);
+                    break;
+                }
+                case 10 -> {
+                    MetodoOpcao_10_507826 (matriz,vetor);
+                    break;
+                }
+                
+                case 11 -> System.out.println("Programa encerrrado!");
                 
             }
-
-        } while(op!=5);
-        }
-    public static void Somando_linhas(int[][] matriz,int[] vetor){
-        Metodos_trabalho.Soma_Linhas(matriz, vetor); 
+        }  while(op!=11);
+       
+    }
+    public static void MetodoOpcao_01_510203(int[][] matriz,int [] vetor){
+        ClasseProgramaMetodos507826.MetodoOpcao_01_510203(matriz, vetor); 
         for(int i = 0; i < 3; ++i) {
-            System.out.println("O valor da soma da linha " + (i+1) + " = " + vetor[i]);
+            System.out.println("O valor da soma da linha " + (i+1) + " equivale a " + vetor[i]);
         }
     }
-    public static void Contar_Primos(int[][] matriz, int [] vetor){
-        int num_primo = Metodos_trabalho.Contar_Primos(matriz);
-        for(int i = 0; i < 3; ++i) {
-        for(int j = 0; j<matriz[i].length; j++){
-            System.out.println("A quantidade de primos é " + (i+1) + " = " + vetor[i]);
-        System.out.println(num_primo);
-    }     
-  }
-    }
-    public static void Transposta_Matriz (int[][] matriz) {
-       double metodo = Metodos_trabalho.Matriz_Transposta(matriz, 0);
-       System.out.print(" A matriz transposta é igual a " + metodo);     
-   }
-    public static void Fatorial_matriz (int i){
-        Metodos_trabalho.calcularFatorial(i);
-        System.out.print(" O fatorial da matriz é igual a " + i);
     
+    public static void MetodoOpcao_02_507826(int[][] matriz, int [] vetor){
+        System.out.println(ClasseProgramaMetodos507826.MetodoOpcao_02_507826(matriz));
+    }     
+  
+    public static void MetodoOpcao_03_510203 (int[][] matriz) {
+       double metodo = ClasseProgramaMetodos507826.MetodoOpcao_03_510203(matriz, 0);
+       System.out.print(" A matriz transposta é equivale a = " + metodo);     
+   }
+    public static void MetodoOpcao_04_507826 (int i){
+        ClasseProgramaMetodos507826.calcularFatorial(i);
+        System.out.print(" O fatorial da matriz é igual a = " + i);  
     }   
-    public static void SomaLinha_Fatorial (int m[][], int vetor[], int i){
-        Metodos_trabalho.somaLinhafatorial(m, vetor, i);
-        System.out.print(" O fatorial da soma linha da matriz é igual a " + i);
+
+    public static void MetodoOpcao_05_510203 (int matriz [][], int vetor[]){
+       int somaLinha =  ClasseProgramaMetodos507826.MetodoOpcao_05_510203(matriz, vetor);
+       System.out.println("No total, a soma de todos os fatoriais da matriz, é igual à: " + somaLinha + "\n");
     }
-    public static void SomaColuna_Fatorial (int matriz [][]){
-        double somacoluna = Metodos_trabalho.somaDasColunasFatorial(matriz);
-        System.out.println("O valor da soma fatorial dos elementos da coluna " + somacoluna);
-            }
-    public static void Calcula_Determinante (int[][] matriz){
-        double det = Metodos_trabalho.calculoDeterminante(matriz);
-        System.out.println("O valor do determinante da matriz " + det);
+    
+    public static void MetodoOpcao_06_507826 (int matriz [][], int i){
+        double sum = ClasseProgramaMetodos507826.MetodoOpcao_06_507826(matriz);
+        System.out.println("O valor da soma fatorial dos elementos da coluna " + (i + 1) + " é igual a = " + sum + "\n");
+    }
+    
+    public static void MetodoOpcao_07_510203 (double matriz[][]){
+        double resultado = ClasseProgramaMetodos507826.MetodoOpcao_07_510203(matriz);
+        System.out.println("O valor do determinante da matriz equivale a = " + resultado);
         
-}
-    public static void Media_DiagonalPrincipal (int[][] matriz) {
-        float media_diagonalprincipal = Metodos_trabalho.mediaDiagonalPrincipal(matriz);
-         System.out.println("O valor da media da diagonal principal da matriz " + media_diagonalprincipal);
+    }
+    
+    public static void MetodoOpcao_08_507826 (int matriz[][]) {
+        int resultado2 = ClasseProgramaMetodos507826.MetodoOpcao_08_507826(matriz);
+        System.out.println(resultado2);
+    }
+    public static void MetodoOpcao_09_510203(int [][] matriz, int [] vetor) {
+        int resultado3 = ClasseProgramaMetodos507826.MetodoOpcao_09_510203(matriz, vetor);
+        System.out.println("O produto entre as somas dos fatoriais das linhas e das colunas da matriz equivale a " + resultado3);
+    }
+    
+    public static void MetodoOpcao_10_507826 (int[][] matriz,int[] vetor) {
+        int resultado4 = ClasseProgramaMetodos507826.MetodoOpcao_10_507826 (matriz,vetor);
+        System.out.println("A soma entre as somas dos fatoriais das linhas e das colunas da matriz equivale a " + resultado4);
     }
 
 }
