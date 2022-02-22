@@ -1,97 +1,46 @@
-// Alice Alves e Lívia Christine
-package Parte2;
-public class Metodos_trabalho {
-    public static void Soma_Linhas(int m[][], int vetor[]) {
-        for(int i = 0; i < 3; ++i) {
-            for(int j = 0; j < 3; ++j) {
+
+package ProgramaMetodos507826;
+
+/**
+ *
+ * @author Nome das alunas: Alice Alves (507826) e Lívia Pinheiro (510203)
+ */
+
+public class ClasseProgramaMetodos507826 {
+    
+    public static void MetodoOpcao_01_510203(int m[][], int vetor[]) {
+        for(int i = 0; i < 100; ++i) {
+            for(int j = 0; j < 100; ++j) {
                vetor[i] = vetor[i] + m[i][j];
             }
             System.out.println("O valor da soma da linha " + (i+1) + " no metodo do pacote = " + vetor[i]);
         }
     }
-public static int Contar_Primos(int m[][]){
-int quant = 0;
-                    System.out.println("Os números primos dessa matriz são: ");
-                    for(int i = 0; i<m.length; i++){
-                        for(int j = 0; j<m[i].length; j++){
-                            for(int k = 1; k<=m[i][j]; k++){
-                                if(m[i][j]%k == 0){
-                                    quant++;
+    public static int MetodoOpcao_02_507826(int m[][]){
+    int quant = 0;
+                        System.out.println("Os números primos dessa matriz são: ");
+                        for(int i = 0; i<m.length; i++){
+                            for(int j = 0; j<m[i].length; j++){
+                                for(int k = 1; k<=m[i][j]; k++){
+                                    if(m[i][j]%k == 0){
+                                        quant++;
+                                    }
+                               }
+                                if(quant <= 2){
+                                    System.out.println(m[i][j]);
+                                    System.out.println("Posição: ");
+                                    System.out.println("Linha "+(i+1));
+                                    System.out.println("Coluna "+(j+1));
+                                    System.out.println(" ");
+
                                 }
-                           }
-                            if(quant <= 2){
-                                System.out.println(m[i][j]);
-                                System.out.println("Posição: ");
-                                System.out.println("Linha "+(i+1));
-                                System.out.println("Coluna "+(j+1));
-                                System.out.println(" ");
-
+                                quant = 0;
                             }
-                            quant = 0;
                         }
-                    }
-        return quant;
-}
- public static int calcularFatorial(int i) {
-        int f = 1;
-
-        for (int a = i; a > 1; a--) {
-            f *= a;
-        }
-        return f;
+            return quant;
     }
- public static double somaDasColunasFatorial(int matriz [][]) {
-        int rowsLength = matriz.length;
-        int colLength = matriz[rowsLength - 1].length;
-
-        for (int i = 0; i < colLength; i++) {
-            int sum = 0;
-
-            for (int j = 0; j < rowsLength; j++) {
-                int num = calcularFatorial(matriz[j][i]);
-
-                sum += num;
-            }
-
-            System.out.println("O valor da soma fatorial dos elementos da coluna " + (i + 1) + " é igual à: " + sum + "\n");
-        }
-        return 0;
- }
- public static void somaLinhafatorial (int m[][], int vetor[], int i){
-        int t = 0;
-        for (int a = 0; a<i; a++){
-            vetor[a] = 0;
-            for (int b = 0; b<i; b++){
-                int fat= 1;
-                for (int c = 1; c<=m[a][b]; c++){
-                    fat = fat * c;
-                }
-                System.out.println("O fatorial do elemento " + m[a][b] + " na linha " + (a+1) + " e na coluna " + (b+1)+ " é igual à: " + fat + " \n");
-                vetor[a] = vetor[a] + fat;
-            }
-            System.out.println("A soma dos fatoriais na linha " + (a+1) + " é igual à: " + vetor[a] + " \n");
-            t = t + vetor[a];
-        }
-        System.out.println("No total, a soma de todos os fatoriais da matriz, é igual à: " + t + "\n");
-    }
- public static void Diagonal_Secundaria (int matriz[][], int i){
-        int dia = 0, col = (i-1);
-        for (int a = 0; a<i; a++){
-            dia = dia + matriz[a][col];
-            col--;
-        }
-        System.out.println("O resultado da diagonal secundária da matriz equivale à: " + dia + "\n");
-    }   
-    public static void diagonal_Principal (int matriz[][], int i){
-        int diagonal = 0;
-        for (int a = 0; a<i; a++){
-            for (int b = 0; b<i; b++){
-                if (a == b) diagonal = diagonal + matriz[a][b];
-            }
-        }
-        System.out.println("O valor da diagonal principal da matriz equivale à: " + diagonal + "\n");
-    }
-   public static double Matriz_Transposta (int matriz[][], int i){
+    
+   public static double MetodoOpcao_03_510203(int matriz[][], int i){
             System.out.println("O resultado da transposta da matriz equivale a: \n");
 		int[][] matrizTransposta = new int[i][i];
 		for(int a = 0 ; a < i ; a++){
@@ -102,32 +51,87 @@ int quant = 0;
 			System.out.println();
 		}		
         return 0;
-	}		
-   public static double calculoDeterminante (int[][] matriz) {
-		int det = 0;
-		int kAux = 0;
-		int [][] aux = new int [matriz.length-1][matriz[0].length-1];
-		if(matriz.length == 1 && matriz[0].length==1)
-			return matriz[0][0];
-		for (int i = 0; i < matriz[0].length; i++) {	
-			for (int j = 1; j < matriz.length; j++) {
-				
-				for (int k = 0; k < matriz[0].length; k++) {
-					if(k==i)
-						continue;
-					
-					aux[j-1][kAux] = matriz[j][k];
-					kAux++;
-				}
-				kAux = 0;
-			}
-			det += (Math.pow(-1, 1+(i+1)))*calculoDeterminante(aux);		
-		}
-		return det;
-                
-	}
-   public static float mediaDiagonalPrincipal(int[][] matriz) {
-       float somaDiagonalPrincipal = 0, media, cont = 0;
+	}	
+ 
+    public static void MetodoOpcao_04_507826 (int[][] matriz){
+        for (int i = 0;i <100; i++){
+            for (int j = 0; j< 100; j++) {
+                System.out.println("O fatorial da posicao ["+i+"] ["+j+"] da matriz é " + calcularFatorial(matriz[i][j]));
+            }
+        }
+    }
+ 
+    public static int MetodoOpcao_05_510203 (int matriz[][], int vetor[]){
+        int total = 0;
+        int i = 0;
+           for (int a = 0; a<i; a++){
+               vetor[a] = 0;
+               for (int b = 0; b<i; b++){
+                   int fat= 1;
+                   for (int c = 1; c<=matriz[a][b]; c++){
+                       fat = fat * c;
+                   }
+                   vetor[a] = vetor[a] + fat;
+               }
+               total = total + vetor[a];
+               System.out.println(total);
+               
+       }
+        return total;
+   }
+    
+    public static int MetodoOpcao_06_507826 (int matriz [][]) {
+           int rowsLength = matriz.length;
+           int colLength = matriz[rowsLength - 1].length;
+           int sum = 0;
+           for (int i = 0; i < colLength; i++) {
+               for (int j = 0; j < rowsLength; j++) {
+                   int num = calcularFatorial(matriz[j][i]);
+                   sum += num;
+               }
+           } 
+           System.out.println(sum);
+        return sum;
+    }
+    
+    public static double MetodoOpcao_07_510203 (double[][] matriz) {
+	double determinante = 0;
+	if (matriz.length == 3){
+        determinante = matriz[0][0] * matriz[1][1] * matriz[2][2]
+                    + matriz[0][1] * matriz[1][2] * matriz[2][0]
+                    + matriz[0][2] * matriz[1][0] * matriz[2][1]
+                    - matriz[0][2] * matriz[1][1] * matriz[2][0]
+                    - matriz[0][0] * matriz[1][2] * matriz[2][1]
+                    - matriz[0][1] * matriz[1][0] * matriz[2][2];
+	} else {
+        double[][] aux;
+        int i_aux, j_aux, linha, coluna, i;
+        for (i = 0; i < matriz.length; i++) {
+        	if (matriz[0][i] != 0) {
+		aux = new double[matriz.length - 1][matriz.length - 1];
+		i_aux = 0;
+		j_aux = 0;
+		for (linha = 1; linha < matriz.length; linha++) {
+                        for (coluna = 0; coluna < matriz.length; coluna++) {
+                            if (coluna != i) {
+                                aux[i_aux][j_aux] = matriz[linha][coluna];
+                                j_aux++;
+                            }
+                        }
+                        i_aux++;
+                        j_aux = 0;
+                   }
+                determinante += Math.pow(-1, i) * matriz[0][i] * MetodoOpcao_07_510203(aux);
+                }
+
+            }
+        }
+        return determinante;
+    }
+
+
+   public static int MetodoOpcao_08_507826 (int[][] matriz) {
+       float somaDiagonalPrincipal = 0, media = 0, cont = 0;
        for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j<matriz[0].length; j++) {
                 if (i == j) {
@@ -135,8 +139,34 @@ int quant = 0;
                     somaDiagonalPrincipal = somaDiagonalPrincipal + matriz[i][j];
                 }
             }
+             media = somaDiagonalPrincipal/cont;
+           
         }
-        media = somaDiagonalPrincipal/cont;
-        return media;
+       
+        System.out.println("A média da diagonal principal da matriz é " + media);
+        return 0;
+        
+   }
+
+ 
+    public static int MetodoOpcao_09_510203 (int[][] matriz,int[] vetor) {
+    System.out.println(MetodoOpcao_06_507826(matriz)*MetodoOpcao_05_510203(matriz,vetor));
+        return 0;
     }
+    public static int MetodoOpcao_10_507826 (int[][] matriz,int[] vetor) {
+    System.out.println(MetodoOpcao_06_507826(matriz)+MetodoOpcao_05_510203(matriz,vetor));
+        return 0;
     }
+
+// Aqui embaixo estão alguns métodos que foram usados para calcular as opções acima
+     public static int calcularFatorial(int i) {
+        int f = 1;
+
+        for (int a = i; a > 1; a--) {
+            f *= a;
+        }
+        return f;
+    }
+ 
+}
+    
